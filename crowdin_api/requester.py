@@ -72,7 +72,7 @@ class APIRequester:
             return data
 
         if isinstance(data, dict):
-            result = dict()
+            result = {}
             for key, value in data.items():
                 if value is None:
                     continue
@@ -82,7 +82,7 @@ class APIRequester:
 
                 result[key] = value
         elif isinstance(data, (list, tuple, set)):
-            result = list()
+            result = []
             for value in data:
                 if value is None:
                     continue

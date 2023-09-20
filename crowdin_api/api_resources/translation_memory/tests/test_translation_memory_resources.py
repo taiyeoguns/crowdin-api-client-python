@@ -96,8 +96,7 @@ class TestTranslationMemoryResource:
         resource = self.get_resource(base_absolut_url)
         assert resource.clear_tm(tmId=1) == "response"
         m_request.assert_called_once_with(
-            method="delete",
-            path=resource.get_tms_path(tmId=1) + "/segments",
+            method="delete", path=f"{resource.get_tms_path(tmId=1)}/segments"
         )
 
     # Export
@@ -205,7 +204,7 @@ class TestTranslationMemoryResource:
         assert resource.import_tm(tmId=1, **in_params) == "response"
         m_request.assert_called_once_with(
             method="post",
-            path=resource.get_tms_path(tmId=1) + "/imports",
+            path=f"{resource.get_tms_path(tmId=1)}/imports",
             request_data=request_data,
         )
 
@@ -216,5 +215,5 @@ class TestTranslationMemoryResource:
         resource = self.get_resource(base_absolut_url)
         assert resource.check_tm_import_status(tmId=1, importId="hash") == "response"
         m_request.assert_called_once_with(
-            method="get", path=resource.get_tms_path(tmId=1) + "/imports/hash"
+            method="get", path=f"{resource.get_tms_path(tmId=1)}/imports/hash"
         )

@@ -21,10 +21,7 @@ class TranslationMemoryResource(BaseResource):
     """
 
     def get_tms_path(self, tmId: Optional[int] = None):
-        if tmId is not None:
-            return f"tms/{tmId}"
-
-        return "tms"
+        return f"tms/{tmId}" if tmId is not None else "tms"
 
     def list_tms(
         self,

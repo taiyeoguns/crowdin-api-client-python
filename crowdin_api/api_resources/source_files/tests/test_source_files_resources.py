@@ -481,7 +481,7 @@ class TestSourceFilesResource:
         assert resource.download_file(projectId=1, fileId=2) == "response"
         m_request.assert_called_once_with(
             method="get",
-            path=resource.get_file_path(projectId=1, fileId=2) + "/download",
+            path=f"{resource.get_file_path(projectId=1, fileId=2)}/download",
         )
 
     # File Revisions

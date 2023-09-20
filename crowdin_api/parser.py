@@ -57,8 +57,7 @@ class CrowdinJSONDecoder(json.JSONDecoder):
             )
 
     def _parse_datetime(self, value):
-        match = self.datetime_re.match(value)
-        if match:
+        if match := self.datetime_re.match(value):
             kw = match.groupdict()
             kw["microsecond"] = kw["microsecond"] and kw["microsecond"].ljust(6, "0")
             tzinfo = self._get_timezone(kw.pop("tzinfo"))

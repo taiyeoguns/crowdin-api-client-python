@@ -207,7 +207,7 @@ class TestGlossariesResource:
         m_request.assert_called_once_with(
             method="post",
             request_data=request_data,
-            path=resource.get_glossaries_path(glossaryId=1) + "/imports",
+            path=f"{resource.get_glossaries_path(glossaryId=1)}/imports",
         )
 
     @mock.patch("crowdin_api.requester.APIRequester.request")
@@ -218,7 +218,7 @@ class TestGlossariesResource:
         assert resource.check_glossary_import_status(glossaryId=1, importId="hash") == "response"
         m_request.assert_called_once_with(
             method="get",
-            path=resource.get_glossaries_path(glossaryId=1) + "/imports/hash",
+            path=f"{resource.get_glossaries_path(glossaryId=1)}/imports/hash",
         )
 
     # Terms

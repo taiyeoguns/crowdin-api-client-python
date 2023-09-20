@@ -42,15 +42,11 @@ class APIException(CrowdinException):
         self.http_status = http_status or self.default_http_status
 
         if should_retry is None:
-            if (
-                http_status is None
-                or 100 <= http_status <= 199
-                or 300 <= http_status <= 499
-            ):
-                should_retry = False
-            else:
-                should_retry = True
-
+            should_retry = (
+                http_status is not None
+                and not 100 <= http_status <= 199
+                and not 300 <= http_status <= 499
+            )
         self.should_retry = should_retry
 
     @property

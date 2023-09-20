@@ -466,7 +466,7 @@ class TestTasksResource:
         assert resource.export_task_strings(projectId=1, taskId=2) == "response"
         m_request.assert_called_once_with(
             method="post",
-            path=resource.get_tasks_path(projectId=1, taskId=2) + "/exports",
+            path=f"{resource.get_tasks_path(projectId=1, taskId=2)}/exports",
         )
 
     @mock.patch("crowdin_api.requester.APIRequester.request")

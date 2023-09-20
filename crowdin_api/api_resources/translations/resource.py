@@ -121,11 +121,7 @@ class TranslationsResource(BaseResource):
         https://developer.crowdin.com/api/v2/#operation/api.projects.translations.builds.files.post
         """
 
-        if eTag is not None:
-            headers = {"If-None-Match": eTag}
-        else:
-            headers = None
-
+        headers = {"If-None-Match": eTag} if eTag is not None else None
         return self.requester.request(
             method="post",
             headers=headers,

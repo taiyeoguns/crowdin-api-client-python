@@ -28,15 +28,14 @@ class BaseResource(metaclass=ABCMeta):
 
         if page:
             return self._get_page_params(page=page)
-        else:
-            offset = offset or 0
-            if offset < 0:
-                raise ValueError("The offset must be greater than or equal to 0.")
+        offset = offset or 0
+        if offset < 0:
+            raise ValueError("The offset must be greater than or equal to 0.")
 
-            limit = limit or self.page_size
+        limit = limit or self.page_size
 
-            if limit < 1:
-                raise ValueError("The limit must be greater than or equal to 1.")
+        if limit < 1:
+            raise ValueError("The limit must be greater than or equal to 1.")
 
         return {"offset": offset, "limit": limit}
 

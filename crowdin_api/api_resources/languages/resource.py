@@ -18,10 +18,7 @@ class LanguagesResource(BaseResource):
     """
 
     def get_languages_path(self, languageId: Optional[str] = None):
-        if languageId:
-            return f"languages/{languageId}"
-
-        return "languages"
+        return f"languages/{languageId}" if languageId else "languages"
 
     def list_supported_languages(
         self,

@@ -82,10 +82,7 @@ class EnterpriseUsersResource(BaseUsersResource):
     https://developer.crowdin.com/enterprise/api/v2/#tag/Users
     """
     def get_users_path(self, userId: Optional[int] = None):
-        if userId is not None:
-            return f"users/{userId}"
-
-        return "users"
+        return f"users/{userId}" if userId is not None else "users"
 
     def add_project_member(
         self,

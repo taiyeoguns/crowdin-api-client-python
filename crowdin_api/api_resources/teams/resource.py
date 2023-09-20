@@ -17,10 +17,7 @@ class TeamsResource(BaseResource):
     """
 
     def get_teams_path(self, teamId: Optional[int] = None):
-        if teamId is not None:
-            return f"teams/{teamId}"
-
-        return "teams"
+        return f"teams/{teamId}" if teamId is not None else "teams"
 
     def get_members_path(self, teamId: int, memberId: Optional[int] = None):
         if memberId is not None:

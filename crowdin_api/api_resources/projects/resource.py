@@ -40,10 +40,7 @@ class ProjectsResource(BaseResource):
     """
 
     def get_projects_path(self, projectId: Optional[int] = None):
-        if projectId is not None:
-            return f"projects/{projectId}"
-
-        return "projects"
+        return f"projects/{projectId}" if projectId is not None else "projects"
 
     def list_projects(
         self,

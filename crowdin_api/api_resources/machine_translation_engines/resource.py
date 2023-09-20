@@ -19,10 +19,7 @@ class MachineTranslationEnginesResource(BaseResource):
     """
 
     def get_mts_path(self, mtId: Optional[int] = None):
-        if mtId is not None:
-            return f"mts/{mtId}"
-
-        return "mts"
+        return f"mts/{mtId}" if mtId is not None else "mts"
 
     def list_mts(self, limit: Optional[int] = None, offset: Optional[int] = None):
         """

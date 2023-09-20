@@ -84,6 +84,6 @@ class TestTranslationMemoryResource:
         assert resource.translate_via_mt(**in_params) == "response"
         m_request.assert_called_once_with(
             method="post",
-            path=resource.get_mts_path(mtId=1) + "/translations",
+            path=f"{resource.get_mts_path(mtId=1)}/translations",
             request_data=request_data,
         )

@@ -20,10 +20,7 @@ class GroupsResource(BaseResource):
 
     # Glossaries
     def get_groups_path(self, groupId: Optional[int] = None):
-        if groupId is not None:
-            return f"groups/{groupId}"
-
-        return "groups"
+        return f"groups/{groupId}" if groupId is not None else "groups"
 
     def get_group(self, groupId: int):
         """

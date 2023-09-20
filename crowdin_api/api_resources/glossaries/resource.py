@@ -31,10 +31,7 @@ class GlossariesResource(BaseResource):
 
     # Glossaries
     def get_glossaries_path(self, glossaryId: Optional[int] = None):
-        if glossaryId is not None:
-            return f"glossaries/{glossaryId}"
-
-        return "glossaries"
+        return f"glossaries/{glossaryId}" if glossaryId is not None else "glossaries"
 
     def list_glossaries(
         self,

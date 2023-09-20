@@ -21,10 +21,7 @@ class StoragesResource(BaseResource):
     """
 
     def get_storages_path(self, storageId: Optional[int] = None):
-        if storageId:
-            return f"storages/{storageId}"
-
-        return "storages"
+        return f"storages/{storageId}" if storageId else "storages"
 
     def list_storages(
         self,
