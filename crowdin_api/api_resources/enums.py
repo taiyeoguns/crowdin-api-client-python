@@ -31,3 +31,9 @@ class ExportProjectTranslationFormat(Enum):
     XLIFF = "xliff"
     ANDROID = "android"
     MACOSX = "macosx"
+
+
+class BatchPatchOperation(Enum):
+    REPLACE = "replace"
+    REMOVE = "remove"
+    ADD = "add"
